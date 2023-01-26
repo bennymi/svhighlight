@@ -31,9 +31,22 @@
     />
 </div>`;
 
+	let highlightLines = `<script>
+    import CodeBlock from 'svhighlight';
+    
+    let code = \`...\`;
+<\/script>
+
+<CodeBlock 
+    {code} 
+    highlightLines="1-3, 5, 8-10" 
+    highlightColor="bg-blue-400/20"
+/>`;
+
 	let activeStore = `<script>
     import CodeBlock from 'svhighlight';
     
+    let code = \`...\`;
     let focusBlocks = [
         { lines: '1-3, 5', scrollLine: 1 },
         { lines: '8-12', scrollLine: 8 }
@@ -43,7 +56,7 @@
 
 <button on:click={() => {$activeFocusBlockStore += 1}}>Next</button>
 
-<CodeBlock {focusBlocks} {activeFocusBlockStore} />`;
+<CodeBlock {code} {focusBlocks} {activeFocusBlockStore} />`;
 
 	let avoidErrors = `<\$\{''\}style>
 <\$\{''\}/style>`;
@@ -97,6 +110,20 @@
 
 	<section>
 		<h3>Highlighting Lines</h3>
+		<p>
+			To highlight lines you can define a string with the line numbers that should be highlighted
+			with the <code>highlightLines</code> prop. Ranges are accepted. You can also separate multiple
+			lines with commas. You can also change the highlight color with <code>highlightColor</code>.
+		</p>
+
+		<CodeBlock
+			code={highlightLines}
+			language="svelte"
+			dimensions="w-fit"
+			highlightLines="6-10"
+			focusType="highlight"
+			highlightColor="bg-gray-400/20"
+		/>
 	</section>
 
 	<section>
@@ -124,7 +151,12 @@
 			for example, a button will focus the next block in the <code>focusBlocks</code> list:
 		</p>
 
-		<CodeBlock language="svelte" code={activeStore} dimensions="w-11/12 md:w-fit h-fit" />
+		<CodeBlock
+			language="svelte"
+			code={activeStore}
+			dimensions="w-11/12 md:w-fit h-fit"
+			highlightLines="4-8, 11, 13"
+		/>
 	</section>
 
 	<section>
