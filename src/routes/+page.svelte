@@ -112,8 +112,8 @@
 		<h3>Highlighting Lines</h3>
 		<p>
 			To highlight lines you can define a string with the line numbers that should be highlighted
-			with the <code>highlightLines</code> prop. Ranges are accepted. You can also separate multiple
-			lines with commas. You can also change the highlight color with <code>highlightColor</code>.
+			with the <code>highlightLines</code> prop. You can separate multiple lines with commas and add
+			ranges. The highlight color can be changed with <code>highlightColor</code>.
 		</p>
 
 		<CodeBlock
