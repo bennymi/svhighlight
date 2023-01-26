@@ -1,6 +1,6 @@
 {
 	"name": "svhighlight",
-	"version": "0.0.1",
+	"version": "0.5.0",
 	"description": "A code highlighter for SvelteKit using highlight.js and TailwindCSS.",
 	"author": "bennymi",
 	"private": true,

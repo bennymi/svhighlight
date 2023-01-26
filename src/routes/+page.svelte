@@ -88,6 +88,7 @@
 </div>
 
 <div class="mx-auto w-11/12  md:w-1/2 mt-8 pb-20">
+	<!-- Intallation -->
 	<section>
 		<h3>Installation</h3>
 
@@ -100,7 +101,7 @@
 		</p>
 
 		<CodeBlock
-			code="pnpm i svhighlight highlight.js"
+			code="pnpm add svhighlight highlight.js"
 			language="shell"
 			showLineNumbers={false}
 			showHeader={true}
@@ -108,6 +109,7 @@
 		/>
 	</section>
 
+	<!-- Highlighting Lines -->
 	<section>
 		<h3>Highlighting Lines</h3>
 		<p>
@@ -126,19 +128,28 @@
 		/>
 	</section>
 
+	<!-- Focus Type -->
 	<section>
 		<h3>Focus Type</h3>
 	</section>
 
+	<!-- Dimensions -->
+	<section>
+		<h3>Dimensions</h3>
+	</section>
+
+	<!-- Focus Blocks -->
 	<section>
 		<h3>Focus Blocks</h3>
 
 		<p class="font-sans leading-relaxed">
 			You can define a list of focus blocks, in which you can define lines that should be
-			highlighted, as well as which line to scroll to when the focus block is active.
+			highlighted, as well as which line to scroll to when the focus block is active. If you are
+			using Typescript, you can import the <code>FocusBlock</code> type from the library.
 		</p>
 	</section>
 
+	<!-- Active Focus Store -->
 	<section>
 		<h3>Active Focus Store</h3>
 		<p>
@@ -159,6 +170,7 @@
 		/>
 	</section>
 
+	<!-- Errors -->
 	<section>
 		<h3>Avoiding errors with Svelte code</h3>
 		<p>
@@ -191,6 +203,7 @@
 		</p>
 	</section>
 
+	<!-- Props Overview -->
 	<section>
 		<h3>Props Overview</h3>
 	</section>

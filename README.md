@@ -1,5 +1,6 @@
 # svhighlight - A code highlighter with blur and focus buttons for SvelteKit
 
+TODO: add npm package / number of downloads / version / etc
 ## Installation
 
 ```bash
