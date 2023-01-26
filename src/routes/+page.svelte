@@ -56,34 +56,23 @@
 		language="svelte"
 		{focusBlocks}
 		showFocusButtons={true}
-		dimensions="h-96 w-11/12 md:w-8/12"
+		dimensions="h-80 w-11/12 md:w-8/12"
 	/>
 </div>
 
-<div class="mx-auto w-11/12  md:w-8/12 mt-12 pb-20">
-	<section class="w-full">
-		<h2 class="text-left font-extrabold text-2xl tracking-tight">Installation</h2>
+<div class="mx-auto w-11/12  md:w-8/12 mt-8 pb-20">
+	<section>
+		<h3>Installation</h3>
 
 		<p class="font-sans">
 			For the installation, simply install the package with npm or pnpm along with
-			<a
-				class="text-blue-700 font-bold hover:underline"
-				href="https://www.npmjs.com/package/highlight.js"
-			>
-				highlight.js
-			</a>
+			<a href="https://www.npmjs.com/package/highlight.js"> highlight.js </a>
 			and
-			<a
-				class="text-blue-700 font-bold hover:underline"
-				href="https://tailwindcss.com/docs/guides/sveltekit"
-			>
-				TailwindCSS</a
-			>.
+			<a href="https://tailwindcss.com/docs/guides/sveltekit"> TailwindCSS</a>.
 		</p>
 
 		<CodeBlock
 			code="pnpm i svhighlight highlight.js"
-			headerText=""
 			language="shell"
 			showLineNumbers={false}
 			showHeader={true}
@@ -91,45 +80,56 @@
 		/>
 	</section>
 
-	<section class="w-full mt-8">
-		<h2 class="text-left font-extrabold text-2xl tracking-tight">Focus Type</h2>
+	<section>
+		<h3>Focus Type</h3>
 	</section>
 
-	<section class="w-full mt-8">
-		<h2 class="text-left font-extrabold text-2xl tracking-tight">Focus Blocks</h2>
+	<section>
+		<h3>Focus Blocks</h3>
+
+		<p class="font-sans leading-relaxed">
+			You can define a list of focus blocks, in which you can define lines that should be
+			highlighted, as well as which line to scroll to when the focus block is active.
+		</p>
 	</section>
 
-	<section class="w-full mt-8">
-		<h2 class="text-left font-extrabold text-2xl tracking-tight">
-			Avoid errors when pasting Svelte code
-		</h2>
-		<p class="font-sans leading-relaxed mb-4">
+	<section>
+		<h3>Active Focus Store</h3>
+	</section>
+
+	<section>
+		<h3>Avoiding errors with Svelte code</h3>
+		<p>
 			When pasting Svelte code that you want to display, you have to escape the <span
-				class="font-bold text-blue-700">closing</span
+				class="font-bold">closing</span
 			>
 			script tag to avoid errors:
-			<span class="bg-gray-900 p-1 text-white rounded-md">{`<\\\/script>`}</span>.
+			<code class="code">{`<\\\/script>`}</code>.
 		</p>
 
 		<p>
-			Another error can occur if you have a <span
-				class="bg-gray-900 p-1 text-white rounded-md leading-relaxed">{'<style>'}</span
-			>
-			tag in your code, in which case you might see <span class="font-bold">{'*{}'}</span> added to
-			the end of your code. This is due to some parsing error. You can read more about it in this
+			Another error can occur if you have a
+			<code class="code">{'<style>'}</code>
+			tag in your string, in which case you might see
+			<code class="code">{'*{}'}</code>added to the end of your code. This is due to some parsing
+			error. You can read more about it in this
 			<a
-				class="text-blue-700 font-bold hover:underline"
 				href="https://stackoverflow.com/questions/75223639/strange-error-with-template-literal-adding-to-string/75224125#75224125"
 			>
 				Stackoverflow</a
 			>
 			thread. To avoid this, make sure that you add style tags like this:
 
-			<CodeBlock language="svelte" code={avoidErrors} dimensions="h-fit w-11/12 md:w-8/12" />
+			<CodeBlock
+				language="svelte"
+				headerText="<style> tag inside string"
+				code={avoidErrors}
+				dimensions="h-fit w-11/12 md:w-8/12"
+			/>
 		</p>
 	</section>
 
-	<section class="w-full mt-8">
-		<h2 class="text-left font-extrabold text-2xl tracking-tight">Props Overview</h2>
+	<section>
+		<h3>Props Overview</h3>
 	</section>
 </div>

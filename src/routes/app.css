@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+p > code {
+    @apply font-mono bg-teal-700/90 rounded-md p-1 mx-1 text-white;
+}
+
+div > section {
+    @apply w-full mt-8;
+}
+
+section h3 {
+    @apply text-left font-extrabold text-2xl tracking-tight;
+}
+
+p {
+    @apply font-sans leading-relaxed mb-4
+}
+
+p > a {
+    @apply text-blue-700 font-bold hover:underline;
+}
