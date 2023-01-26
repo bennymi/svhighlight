@@ -78,7 +78,8 @@
 	const handleFocusBlock = (block: UpdatedFocusBlock) => {
 		highlightedLinesList = [];
 
-		if (block.scrollLine) scrollToLine(block.scrollLine!);
+		if (block.scrollLine != undefined && block.scrollLine >= 0 && block.scrollLine < lines.length)
+			scrollToLine(block.scrollLine!);
 
 		highlightedLinesList = block.highlightLines!;
 	};

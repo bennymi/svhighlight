@@ -8,7 +8,7 @@
 		{ lines: '1', scrollLine: 0, text: '1: Import CodeBlock' },
 		{ lines: '3', scrollLine: 0, text: '2: Import CSS theme' },
 		{ lines: '5-7', scrollLine: 3, text: '3: Define code' },
-		{ lines: '11-18', scrollLine: 11, text: '4: Insert CodeBlock' }
+		{ lines: '11-18', scrollLine: 12, text: '4: Insert CodeBlock' }
 	];
 
 	let svelteCode = `<script>
