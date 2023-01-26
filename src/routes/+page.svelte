@@ -31,6 +31,20 @@
     />
 </div>`;
 
+	let activeStore = `<script>
+    import CodeBlock from 'svhighlight';
+    
+    let focusBlocks = [
+        { lines: '1-3, 5', scrollLine: 1 },
+        { lines: '8-12', scrollLine: 8 }
+    ]
+    let activeFocusBlockStore = writable(0);
+<\/script>
+
+<button on:click={() => {$activeFocusBlockStore += 1}}>Next</button>
+
+<CodeBlock {focusBlocks} {activeFocusBlockStore} />`;
+
 	let avoidErrors = `<\$\{''\}style>
 <\$\{''\}/style>`;
 </script>
@@ -56,19 +70,20 @@
 		language="svelte"
 		{focusBlocks}
 		showFocusButtons={true}
-		dimensions="h-80 w-11/12 md:w-8/12"
+		dimensions="h-80 w-11/12 md:w-1/2"
 	/>
 </div>
 
-<div class="mx-auto w-11/12  md:w-8/12 mt-8 pb-20">
+<div class="mx-auto w-11/12  md:w-1/2 mt-8 pb-20">
 	<section>
 		<h3>Installation</h3>
 
 		<p class="font-sans">
-			For the installation, simply install the package with npm or pnpm along with
+			For the installation, simply install the package, as well as
 			<a href="https://www.npmjs.com/package/highlight.js"> highlight.js </a>
 			and
-			<a href="https://tailwindcss.com/docs/guides/sveltekit"> TailwindCSS</a>.
+			<a href="https://tailwindcss.com/docs/guides/sveltekit"> TailwindCSS</a> (link to instructions
+			on how to install Tailwind), with npm or pnpm.
 		</p>
 
 		<CodeBlock
@@ -78,6 +93,10 @@
 			showHeader={true}
 			dimensions="w-fit"
 		/>
+	</section>
+
+	<section>
+		<h3>Highlighting Lines</h3>
 	</section>
 
 	<section>
@@ -95,6 +114,17 @@
 
 	<section>
 		<h3>Active Focus Store</h3>
+		<p>
+			You can either style the focus buttons to your liking with the <code>focusButtonClasses</code>
+			prop, or remove them all together with the <code>showFocusButtons</code> prop.
+		</p>
+		<p>
+			Additionally, if you rather create a different control for focus blocks, you can pass a store
+			to <code>activeFocusBlockStore</code>. With the store you can control the active index. Here
+			for example, a button will focus the next block in the <code>focusBlocks</code> list:
+		</p>
+
+		<CodeBlock language="svelte" code={activeStore} dimensions="w-11/12 md:w-fit h-fit" />
 	</section>
 
 	<section>

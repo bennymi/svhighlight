@@ -15,7 +15,7 @@ section h3 {
 }
 
 p {
-    @apply font-sans leading-relaxed mb-4
+    @apply font-sans leading-loose mb-4 text-justify;
 }
 
 p > a {
