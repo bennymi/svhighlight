@@ -3,6 +3,7 @@
 
 	import CodeBlock from '$lib/code/CodeBlock.svelte';
 	import TableOfContents from './TableOfContents.svelte';
+	import PropsTable from './PropsTable.svelte';
 
 	let focusBlocks = [
 		{ lines: '', text: 'Unblur' },
@@ -226,6 +227,10 @@
 				few. For the complete list look at the table at the bottom of the page.
 			</p>
 			<p>
+				By default the dimensions of the table are set to <code>'w-full h-fit'</code>, but you can
+				change this with the <code>dimensions</code> prop.
+			</p>
+			<p>
 				You can enable / disable both the header and the line numbers with <code>showHeader</code>
 				and <code>showLineNumbers</code> respectively. You can change the displayed header text with
 				the <code>headerText</code> prop, which by default is the uppercase of the specified language.
@@ -275,6 +280,10 @@
 		<!-- Props Overview -->
 		<section>
 			<h3>Props Overview</h3>
+
+			<div class="mt-4 relative overflow-x-auto shadow-md sm:rounded-lg">
+				<PropsTable />
+			</div>
 		</section>
 	</div>
 </div>

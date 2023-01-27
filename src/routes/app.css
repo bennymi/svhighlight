@@ -21,3 +21,7 @@ p {
 p > a {
     @apply text-blue-700 font-bold hover:underline;
 }
+
+th {
+    @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white;
+}
