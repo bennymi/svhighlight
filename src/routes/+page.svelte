@@ -77,7 +77,8 @@
 <\$\{''\}/style>`;
 </script>
 
-<div class="sticky top-0 z-10">
+<!-- <div class="sticky top-0 z-10"> -->
+<div>
 	<div class="flex justify-center items-center py-4 bg-gray-200">
 		<h1
 			class="block text-center text-4xl font-black font-sans tracking-tighter bg-gradient-to-r from-teal-600 via-blue-500 to-purple-600 bg-clip-text text-transparent p-1"
