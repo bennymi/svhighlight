@@ -5,6 +5,7 @@
 		options: string;
 		default: string;
 		description: string;
+		show: boolean;
 	};
 
 	let props: Prop[] = [
@@ -13,84 +14,96 @@
 			type: 'string',
 			options: '-',
 			default: 'plaintext',
-			description: 'Set the Highlight.js language used for syntax highlighting.'
+			description: 'Set the Highlight.js language used for syntax highlighting.',
+			show: false
 		},
 		{
 			prop: 'code',
 			type: 'string',
 			options: '-',
 			default: '-',
-			description: 'Provide the code as a string.'
+			description: 'Provide the code as a string.',
+			show: false
 		},
 		{
 			prop: 'highlightLines',
 			type: 'string',
 			options: '-',
 			default: '-',
-			description: `Provide lines that should be highlighted. Ranges are accepted, e.g.: '1-5, 8, 10-12, 42'.`
+			description: `Provide lines that should be highlighted. Ranges are accepted, e.g.: '1-5, 8, 10-12, 42'.`,
+			show: false
 		},
 		{
 			prop: 'focusType',
 			type: 'string',
 			options: `'blur' | 'highlight'`,
 			default: 'blur',
-			description: `Set focus type.`
+			description: `Set focus type.`,
+			show: false
 		},
 		{
 			prop: 'showHeader',
 			type: 'boolean',
 			options: 'true | false',
 			default: 'true',
-			description: `Show header.`
+			description: `Show header.`,
+			show: false
 		},
 		{
 			prop: 'headerText',
 			type: 'string',
 			options: '-',
 			default: 'language.toUppercase()',
-			description: `Set header text. Is the same as the language by default.`
+			description: `Set header text. Is the same as the language by default.`,
+			show: false
 		},
 		{
 			prop: 'showLineNumbers',
 			type: 'boolean',
 			options: 'true | false',
 			default: 'true',
-			description: `Show line numbers.`
+			description: `Show line numbers.`,
+			show: false
 		},
 		{
 			prop: 'focusBlocks',
 			type: 'FocusBlock[]',
 			options: '-',
 			default: '[]',
-			description: `Define focus blocks. The focus block type can be imported from the library.`
+			description: `Define focus blocks. The focus block type can be imported from the library.`,
+			show: false
 		},
 		{
 			prop: 'showFocusButtons',
 			type: 'boolean',
 			options: 'true | false',
 			default: 'false',
-			description: `Show focus buttons.`
+			description: `Show focus buttons.`,
+			show: false
 		},
 		{
 			prop: 'activeFocusBlockStore',
 			type: 'Writable<number>',
 			options: '-',
 			default: 'null',
-			description: `Provide store that states which focus block index should be active.`
+			description: `Provide store that states which focus block index should be active.`,
+			show: false
 		},
 		{
 			prop: 'background',
 			type: 'string',
 			options: '-',
 			default: 'bg-gray-900',
-			description: `Provide classes to set the background color.`
+			description: `Provide classes to set the background color.`,
+			show: false
 		},
 		{
 			prop: 'headerClasses',
 			type: 'string',
 			options: '-',
 			default: 'bg-gray-800 text-white/80 text-xs font-bold',
-			description: `Provide classes to set the header style (background / text-color / etc).`
+			description: `Provide classes to set the header style (background / text-color / etc).`,
+			show: false
 		},
 		{
 			prop: 'focusButtonClasses',
@@ -98,76 +111,88 @@
 			options: '-',
 			default:
 				'flex-grow px-2 py-1 rounded-lg border-2 text-sm font-bold transition-all border-gray-900 text-gray-900 hover:bg-slate-900 hover:shadow-lg hover:shadow-blue-500 hover:text-white',
-			description: `Provide classes for the focus buttons.`
+			description: `Provide classes for the focus buttons.`,
+			show: false
 		},
 		{
-			prop: 'highlightLines',
+			prop: 'codeTextClasses',
 			type: 'string',
 			options: '-',
-			default: '-',
-			description: ``
+			default: 'text-sm text-white',
+			description: `Provide classes to set the code text style (size and color).`,
+			show: false
 		},
 		{
-			prop: 'highlightLines',
+			prop: 'lineNumberTextColor',
 			type: 'string',
 			options: '-',
-			default: '-',
-			description: ``
+			default: 'text-white/90',
+			description: `Provide classes to set the default line number text color.`,
+			show: false
+		},
+		{
+			prop: 'rounded',
+			type: 'string',
+			options: '-',
+			default: 'rounded-lg',
+			description: `Provide classes to set the CodeBlock border radius.`,
+			show: false
+		},
+		{
+			prop: 'dimensions',
+			type: 'string',
+			options: '-',
+			default: 'w-full h-fit',
+			description: `Provide classes to set dimensions of the code block.`,
+			show: false
+		},
+		{
+			prop: 'highlightColor',
+			type: 'string',
+			options: '-',
+			default: 'bg-gray-200/10',
+			description: `Provide classes to set highlight color.`,
+			show: false
 		}
 	];
 </script>
 
-<table class="w-full text-sm text-center text-gray-400">
-	<thead class="text-sm font-bold uppercase bg-gray-700 text-gray-400">
+<table class="w-full text-sm text-center text-white">
+	<thead class="text-sm font-bold uppercase bg-teal-700">
 		<tr>
-			<th scope="col" class="px-6 py-3"> Prop </th>
-			<th scope="col" class="px-6 py-3"> Options </th>
-			<th scope="col" class="px-6 py-3"> Default </th>
-			<th scope="col" class="px-6 py-3"> Description </th>
+			<th scope="col" class="px-6 py-3 font-bold"> Prop </th>
+			<th scope="col" class="px-6 py-3 font-bold"> Type </th>
+			<th scope="col" class="px-6 py-3 font-bold"> Options </th>
+			<th scope="col" class="px-6 py-3 font-bold"> Default <br /> (Click to Expand) </th>
+			<th scope="col" class="py-3 text-left font-bold"> Description </th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="bg-white border-b bg-gray-900 border-gray-700">
-			<th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-white">
-				<code>language</code>
-			</th>
-			<td class="px-6 py-4">-</td>
-			<td class="px-6 py-4"><code>'plaintext'</code></td>
-			<td class="px-6 py-4">Set the Highlight.js language used for syntax highlighting.</td>
-		</tr>
-		<tr class="border-b bg-gray-800 border-gray-700">
-			<th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
-				<code>code</code>
-			</th>
-			<td class="px-6 py-4">-</td>
-			<td class="px-6 py-4"><code>''</code></td>
-			<td class="px-6 py-4">Provide the code as a string.</td>
-		</tr>
-		<tr class="border-b bg-gray-900 border-gray-700">
-			<th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
-				<code>highlightLines</code>
-			</th>
-			<td class="px-6 py-4"> - </td>
-			<td class="px-6 py-4"> <code>''</code> </td>
-			<td class="px-6 py-4"
-				>Provide lines that should be highlighted. Ranges are accepted, e.g.: '1-5, 8, 10-12, 42'.</td
+		{#each props as prop, i}
+			<tr
+				class="border-b border-teal-600/20 h-10 overflow-auto hover:bg-teal-600 {i % 2 === 0
+					? 'bg-gray-900'
+					: 'bg-gray-800'}"
 			>
-		</tr>
-		<tr class="border-b bg-gray-800 border-gray-700">
-			<th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
-				<code>focusType</code>
-			</th>
-			<td class="px-6 py-4"> <code>'blur' | 'highlight'</code> </td>
-			<td class="px-6 py-4"> <code>'blur'</code> </td>
-			<td class="px-6 py-4"> Set focus type. </td>
-		</tr>
-		<tr class="border-b bg-gray-900 border-gray-700">
-			<th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
-				<code>showHeader</code>
-			</th>
-			<td class="px-6 py-4"><code>true | false</code></td>
-			<td class="px-6 py-4"><code>true</code></td>
-			<td class="px-6 py-4">Show header.</td>
-		</tr>
+				<th scope="row" class="px-6 py-2 font-bold whitespace-nowrap">
+					<code class="font-mono">{prop.prop}</code>
+				</th>
+				<td class="px-1 whitespace-nowrap">{prop.type}</td>
+				<td class="px-1 whitespace-nowrap"><code class="font-mono">{prop.options}</code></td>
+				<td class="px-1 ">
+					{#if prop.default.split(' ').length < 3}
+						<code class="font-mono">{prop.default}</code>
+					{:else}
+						<button
+							class="px-1 font-bold font-mono transition-all hover:"
+							on:click={() => (props[i].show = !props[i].show)}
+						>
+							{prop.show ? prop.default : '{...}'}
+						</button>
+					{/if}
+				</td>
+				<td class="px-2 whitespace-nowrap text-left">{prop.description}</td>
+			</tr>
+		{/each}
 	</tbody>
 </table>
