@@ -106,8 +106,8 @@
 </div>
 
 <div class="relative">
-	<div class="sticky top-16">
-		<div class="absolute hidden right-0 md:block md:right-2 lg:right-4 my-4 rounded-lg">
+	<div class="sticky top-2">
+		<div class="absolute hidden right-0 md:block md:right-2 lg:right-4 xl:right-24 my-4 rounded-lg">
 			<TableOfContents target="#toc-target" width="md:w-[200px] lg:w-[260px]" />
 		</div>
 	</div>
