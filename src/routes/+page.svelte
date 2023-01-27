@@ -118,6 +118,13 @@
 			ranges. The highlight color can be changed with <code>highlightColor</code>.
 		</p>
 
+		<p>
+			The full list of supported languages from highlight.js is <a
+				href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">here</a
+			>, and a list of available themes is
+			<a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles">here</a>.
+		</p>
+
 		<CodeBlock
 			code={highlightLines}
 			language="svelte"
