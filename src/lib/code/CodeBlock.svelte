@@ -1,3 +1,8 @@
+<!-- 
+	Author: bennymi
+	Github: https://github.com/bennymi/svhighlight 
+	Description: Code highlight component with blur and focus blocks. Inspired and adapted from Skeleton UI (https://www.skeleton.dev/), as well as Torchlight (https://torchlight.dev/).
+-->
 <script lang="ts">
 	import hljs from 'highlight.js';
 
@@ -43,10 +48,8 @@
 	/** Provide classes for the focus buttons. */
 	export let focusButtonClasses: string =
 		'flex-grow px-2 py-1 rounded-lg border-2 text-sm font-bold transition-all border-gray-900 text-gray-900 hover:bg-slate-900 hover:shadow-lg hover:shadow-blue-500 hover:text-white';
-	/** Provide classes to set the text size. */
-	export let text: string = 'text-sm';
-	/** Provide classes to set the default code text color. */
-	export let textColor: string = 'text-white';
+	/** Provide classes to set the code text style (size and color). */
+	export let codeTextClasses: string = 'text-sm text-white';
 	/** Provide classes to set the default line number text color. */
 	export let lineNumberTextColor: string = 'text-white/90';
 	/** Provide classes to set the border radius. */
@@ -202,7 +205,7 @@
 
 	// Set the classes
 	$: classesHeader = `${headerClasses} ${headerText}`;
-	$: classesCodeBlock = `${background} ${text} ${textColor} ${rounded}`;
+	$: classesCodeBlock = `${background} ${codeTextClasses} ${rounded}`;
 </script>
 
 <div class="svhiglight flex flex-col {dimensions}">
