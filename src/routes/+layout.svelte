@@ -3,6 +3,6 @@
 	import 'iconify-icon';
 </script>
 
-<div class="max-h-full h-full bg-gray-200/50">
+<div class="max-h-full h-full bg-gray-200">
 	<slot />
 </div>

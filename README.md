@@ -3,15 +3,17 @@
 TODO: add npm package / number of downloads / version / etc
 
 [Documentation]()
-[Github]()
+
+[Github](https://github.com/bennymi/svhighlight)
 
 ##  Features
 
-✅ line numbers toggle
-✅ highlighting lines / blur out non-highlighted lines
-✅ copy button
-✅ focus blocks and buttons to focus your reader's attention
-✅ customizable
+- ✅ line numbers toggle
+- ✅ highlighting lines / blur out non-highlighted lines
+- ✅ hovering over blurred area unblurs the code
+- ✅ copy button
+- ✅ focus blocks and buttons to focus your reader's attention
+- ✅ customizable
 
 ## Installation
 
@@ -27,7 +29,7 @@ pnpm i highlight.js
 
 Additionally install [TailwindCSS](https://tailwindcss.com/docs/guides/sveltekit) to customize the component.
 
-## Examples
+## Example Screenshots
 
 ### Focus Blocks
 

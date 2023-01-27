@@ -2,6 +2,7 @@
 	import 'highlight.js/styles/base16/dracula.css';
 
 	import CodeBlock from '$lib/code/CodeBlock.svelte';
+	import TableOfContents from './TableOfContents.svelte';
 
 	let focusBlocks = [
 		{ lines: '', text: 'Unblur' },
@@ -43,6 +44,19 @@
     highlightColor="bg-blue-400/20"
 />`;
 
+	let codeFocusButtons = `<script lang="ts">
+    import { CodeBlock, type FocusBlock } from 'svhighlight';
+    
+    let code = \`...\`;
+    let focusBlocks: FocusBlock[] = [
+		{ lines: '', text: 'Remove Blur' },
+        { lines: '1-3, 5', scrollLine: 1, text: '1: Start' },
+        { lines: '8-12', scrollLine: 8, text: '2: End' }
+    ]
+<\/script>
+
+<CodeBlock {code} {focusBlocks} showFocusButtons={true} />`;
+
 	let activeStore = `<script>
     import CodeBlock from 'svhighlight';
     
@@ -62,20 +76,22 @@
 <\$\{''\}/style>`;
 </script>
 
-<div class="flex justify-center items-center p-8">
-	<h1
-		class="block text-center text-4xl font-black font-sans tracking-tighter bg-gradient-to-r from-teal-600 via-blue-500 to-purple-600 bg-clip-text text-transparent p-1"
-	>
-		SvHighlight
-	</h1>
+<div class="sticky top-0 z-10">
+	<div class="flex justify-center items-center py-4 bg-gray-200">
+		<h1
+			class="block text-center text-4xl font-black font-sans tracking-tighter bg-gradient-to-r from-teal-600 via-blue-500 to-purple-600 bg-clip-text text-transparent p-1"
+		>
+			SvHighlight
+		</h1>
+	</div>
 </div>
-<h2 class="text-center font-extrabold text-2xl text-gray-700 mb-10">
+<div class="text-center font-extrabold text-2xl text-gray-700 mb-10">
 	A code highlighter with blur and focus buttons for <iconify-icon
 		class="text-xl"
 		icon="logos:svelte-kit"
 	/>
 	using Highlight.js and <iconify-icon class="text-xl" icon="logos:tailwindcss" />.
-</h2>
+</div>
 
 <div class="flex justify-center">
 	<CodeBlock
@@ -83,135 +99,166 @@
 		language="svelte"
 		{focusBlocks}
 		showFocusButtons={true}
-		dimensions="h-80 w-11/12 md:w-1/2"
+		dimensions="h-80 w-11/12 lg:w-7/12"
 	/>
 </div>
 
-<div class="mx-auto w-11/12  md:w-1/2 mt-8 pb-20">
-	<!-- Intallation -->
-	<section>
-		<h3>Installation</h3>
+<div class="relative">
+	<div class="sticky top-16">
+		<div class="absolute hidden right-0 md:block md:right-2 lg:right-4 my-4 rounded-lg">
+			<TableOfContents target="#toc-target" width="md:w-[200px] lg:w-[260px]" />
+		</div>
+	</div>
 
-		<p class="font-sans">
-			For the installation, simply install the package, as well as
-			<a href="https://www.npmjs.com/package/highlight.js"> highlight.js </a>
-			and
-			<a href="https://tailwindcss.com/docs/guides/sveltekit"> TailwindCSS</a> (link to instructions
-			on how to install Tailwind), with npm or pnpm.
-		</p>
+	<div id="toc-target" class="w-11/12 mx-8 md:w-8/12 lg:w-5/12 lg:mx-auto mt-8 pb-20">
+		<!-- Intallation -->
+		<section>
+			<h3>Installation</h3>
 
-		<CodeBlock
-			code="pnpm add svhighlight highlight.js"
-			language="shell"
-			showLineNumbers={false}
-			showHeader={true}
-			dimensions="w-fit"
-		/>
-	</section>
+			<p class="font-sans">
+				For the installation, simply install the package, as well as
+				<a href="https://www.npmjs.com/package/highlight.js"> highlight.js </a>
+				and
+				<a href="https://tailwindcss.com/docs/guides/sveltekit"> TailwindCSS</a> (link to instructions
+				on how to install Tailwind), with npm or pnpm.
+			</p>
 
-	<!-- Highlighting Lines -->
-	<section>
-		<h3>Highlighting Lines</h3>
-		<p>
-			To highlight lines you can define a string with the line numbers that should be highlighted
-			with the <code>highlightLines</code> prop. You can separate multiple lines with commas and add
-			ranges. The highlight color can be changed with <code>highlightColor</code>.
-		</p>
+			<CodeBlock
+				code="pnpm add svhighlight highlight.js"
+				language="shell"
+				showLineNumbers={false}
+				showHeader={true}
+				dimensions="w-full h-fit"
+			/>
+		</section>
 
-		<p>
-			The full list of supported languages from highlight.js is <a
-				href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">here</a
-			>, and a list of available themes is
-			<a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles">here</a>.
-		</p>
+		<!-- Highlighting Lines -->
+		<section>
+			<h3>Highlighting Lines</h3>
+			<p>
+				To highlight lines you can define a string with the line numbers that should be highlighted
+				with the <code>highlightLines</code> prop. You can separate multiple lines with commas and
+				add ranges. The highlight color can be changed with <code>highlightColor</code>.
+			</p>
 
-		<CodeBlock
-			code={highlightLines}
-			language="svelte"
-			dimensions="w-fit"
-			highlightLines="6-10"
-			focusType="highlight"
-			highlightColor="bg-gray-400/20"
-		/>
-	</section>
+			<p>
+				The full list of supported languages from highlight.js is <a
+					href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md"
+					>here</a
+				>, and a list of available themes is
+				<a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles">here</a>.
+			</p>
 
-	<!-- Focus Type -->
-	<section>
-		<h3>Focus Type</h3>
-	</section>
+			<CodeBlock
+				code={highlightLines}
+				language="svelte"
+				dimensions="w-full h-fit"
+				highlightLines="6-10"
+				focusType="highlight"
+				highlightColor="bg-gray-400/20"
+			/>
+		</section>
 
-	<!-- Dimensions -->
-	<section>
-		<h3>Dimensions</h3>
-	</section>
+		<!-- Focus Type -->
+		<section>
+			<h3>Focus Type</h3>
+			<p>
+				You can switch the focus type between <code>'highlight'</code> and <code>'blur'</code> using
+				the <code>focusType</code> prop. By default blur is used.
+			</p>
+		</section>
 
-	<!-- Focus Blocks -->
-	<section>
-		<h3>Focus Blocks</h3>
+		<!-- Focus Blocks -->
+		<section>
+			<h3>Focus Blocks</h3>
 
-		<p class="font-sans leading-relaxed">
-			You can define a list of focus blocks, in which you can define lines that should be
-			highlighted, as well as which line to scroll to when the focus block is active. If you are
-			using Typescript, you can import the <code>FocusBlock</code> type from the library.
-		</p>
-	</section>
+			<p>
+				You can define a list of focus blocks, in which you can define lines that should be
+				highlighted, as well as which line to scroll to when the focus block is active. If you are
+				using Typescript, you can import the <code>FocusBlock</code> type from the library. If you
+				want to see focus buttons for each focus block, you can set
+				<code>showFocusButtons={'{true}'}</code>. Focus buttons can be customized with the
+				<code>focusButtonClasses</code> prop.
+			</p>
 
-	<!-- Active Focus Store -->
-	<section>
-		<h3>Active Focus Store</h3>
-		<p>
-			You can either style the focus buttons to your liking with the <code>focusButtonClasses</code>
-			prop, or remove them all together with the <code>showFocusButtons</code> prop.
-		</p>
-		<p>
-			Additionally, if you rather create a different control for focus blocks, you can pass a store
-			to <code>activeFocusBlockStore</code>. With the store you can control the active index. Here
-			for example, a button will focus the next block in the <code>focusBlocks</code> list:
-		</p>
+			<!-- dimensions="w-11/12 md:w-fit h-fit" -->
+			<CodeBlock
+				language="svelte"
+				code={codeFocusButtons}
+				dimensions="w-full h-fit"
+				focusBlocks={[
+					{ lines: '', text: 'Remove Blur' },
+					{ lines: '4-8', text: '1: Define Blocks' },
+					{ lines: '1, 11', text: '2: Add Code Block' }
+				]}
+				showFocusButtons={true}
+			/>
+		</section>
 
-		<CodeBlock
-			language="svelte"
-			code={activeStore}
-			dimensions="w-11/12 md:w-fit h-fit"
-			highlightLines="4-8, 11, 13"
-		/>
-	</section>
-
-	<!-- Errors -->
-	<section>
-		<h3>Avoiding errors with Svelte code</h3>
-		<p>
-			When pasting Svelte code that you want to display, you have to escape the <span
-				class="font-bold">closing</span
-			>
-			script tag to avoid errors:
-			<code class="code">{`<\\\/script>`}</code>.
-		</p>
-
-		<p>
-			Another error can occur if you have a
-			<code class="code">{'<style>'}</code>
-			tag in your string, in which case you might see
-			<code class="code">{'*{}'}</code>added to the end of your code. This is due to some parsing
-			error. You can read more about it in this
-			<a
-				href="https://stackoverflow.com/questions/75223639/strange-error-with-template-literal-adding-to-string/75224125#75224125"
-			>
-				Stackoverflow</a
-			>
-			thread. To avoid this, make sure that you add style tags like this:
+		<!-- Active Focus Store -->
+		<section>
+			<h3>Active Focus Store</h3>
+			<p>
+				You can either style the focus buttons to your liking with the <code
+					>focusButtonClasses</code
+				>
+				prop, or remove them all together with the <code>showFocusButtons</code> prop.
+			</p>
+			<p>
+				Additionally, if you rather create a different control for focus blocks, you can pass a
+				store to <code>activeFocusBlockStore</code>. With the store you can control the active
+				index. Here for example, a button will focus the next block in the <code>focusBlocks</code> list:
+			</p>
 
 			<CodeBlock
 				language="svelte"
-				headerText="<style> tag inside string"
-				code={avoidErrors}
-				dimensions="h-fit w-11/12 md:w-8/12"
+				code={activeStore}
+				dimensions="w-full h-fit"
+				highlightLines="4-8, 11, 13"
 			/>
-		</p>
-	</section>
+		</section>
 
-	<!-- Props Overview -->
-	<section>
-		<h3>Props Overview</h3>
-	</section>
+		<!-- Dimensions & Style Props -->
+		<section>
+			<h3>Dimensions & Style Props</h3>
+		</section>
+
+		<!-- Errors -->
+		<section>
+			<h3>Avoiding errors with Svelte code</h3>
+			<p>
+				When pasting Svelte code that you want to display, you have to escape the <span
+					class="font-bold">closing</span
+				>
+				script tag to avoid errors:
+				<code class="code">{`<\\\/script>`}</code>.
+			</p>
+
+			<p>
+				Another error can occur if you have a
+				<code class="code">{'<style>'}</code>
+				tag in your string, in which case you might see
+				<code class="code">{'*{}'}</code>added to the end of your code. This is due to some parsing
+				error. You can read more about it in this
+				<a
+					href="https://stackoverflow.com/questions/75223639/strange-error-with-template-literal-adding-to-string/75224125#75224125"
+				>
+					Stackoverflow</a
+				>
+				thread. To avoid this, make sure that you add style tags like this:
+
+				<CodeBlock
+					language="svelte"
+					headerText="<style> tag inside string"
+					code={avoidErrors}
+					dimensions="h-fit w-full"
+				/>
+			</p>
+		</section>
+
+		<!-- Props Overview -->
+		<section>
+			<h3>Props Overview</h3>
+		</section>
+	</div>
 </div>
