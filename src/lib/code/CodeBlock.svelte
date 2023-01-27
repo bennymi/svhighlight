@@ -52,7 +52,7 @@
 	/** Provide classes to set the border radius. */
 	export let rounded: string = 'rounded-lg';
 	/** Provide classes to set dimensions of the code block. */
-	export let dimensions: string = 'h-96 w-3/4 md:w-2/4';
+	export let dimensions: string = 'w-full h-fit'; // 'h-96 w-3/4 md:w-2/4';
 	/** Provide classes to set highlight color. */
 	export let highlightColor: string = 'bg-gray-200/10';
 

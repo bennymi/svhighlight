@@ -110,7 +110,7 @@
 		</div>
 	</div>
 
-	<div id="toc-target" class="w-11/12 mx-8 md:w-8/12 lg:w-5/12 lg:mx-auto mt-8 pb-20">
+	<div id="toc-target" class="w-11/12 mx-8 md:w-8/12 lg:w-5/12 lg:mx-auto mt-8 pb-32">
 		<!-- Intallation -->
 		<section>
 			<h3>Installation</h3>
@@ -221,11 +221,27 @@
 		<!-- Dimensions & Style Props -->
 		<section>
 			<h3>Dimensions & Style Props</h3>
+			<p>
+				There are a lot of props to customize the look of the code block. Here I will only mention a
+				few. For the complete list look at the table at the bottom of the page.
+			</p>
+			<p>
+				You can enable / disable both the header and the line numbers with <code>showHeader</code>
+				and <code>showLineNumbers</code> respectively. You can change the displayed header text with
+				the <code>headerText</code> prop, which by default is the uppercase of the specified language.
+			</p>
+			<p>
+				To change the text size and default text color of non-highlighted code you can use the <code
+					>text</code
+				>
+				(size) and <code>textColor</code> (color) props. You can change the background color of the
+				code block with <code>background</code>.
+			</p>
 		</section>
 
 		<!-- Errors -->
 		<section>
-			<h3>Avoiding errors with Svelte code</h3>
+			<h3>Avoiding Errors with Svelte Code</h3>
 			<p>
 				When pasting Svelte code that you want to display, you have to escape the <span
 					class="font-bold">closing</span

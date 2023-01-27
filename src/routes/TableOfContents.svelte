@@ -21,7 +21,7 @@
 	/** Set the row border radius styles. */
 	export let rounded: string = 'rounded-token';
 	/** Set the active text styles. */
-	export let activeText: string = 'text-blue-500 font-bold';
+	export let activeText: string = 'text-blue-600 font-bold';
 	/** Highlight all headings with content visible in the viewport instead of just the top active heading. */
 	export let highlightAllActive: boolean = true;
 	/** Highlight parent headings along with the current active heading(s). */
