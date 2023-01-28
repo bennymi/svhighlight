@@ -1,3 +1,6 @@
+<!-- 
+	From a Skeleton UI branch: https://github.com/bennymi/skeleton/blob/chore/toc-active-styles/src/lib/components/TableOfContents/TableOfContents.svelte
+ -->
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 
