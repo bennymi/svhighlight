@@ -77,6 +77,21 @@
 <\$\{''\}/style>`;
 </script>
 
+<svelte:head>
+	<title>SvHighlight: Code Highlighter for SvelteKit</title>
+	<meta
+		name="description"
+		content="A code highlighter for Svelte, with line blur and highligthing and focus buttons. The component can be easily customized with TailwindCSS."
+	/>
+	<meta
+		name="keywords"
+		content="svelte, sveltekit, code highlighter, syntax highlighting, blur, highlight.js, prism.js, tailwind, line numbers, blur"
+	/>
+	<meta name="author" content="bennymi" />
+	<meta name="robots" content="index,follow" />
+	<html lang="en" />
+</svelte:head>
+
 <!-- <div class="sticky top-0 z-10"> -->
 <div>
 	<div class="flex justify-center items-center py-4 bg-gray-200">
