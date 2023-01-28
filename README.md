@@ -1,12 +1,12 @@
-# svhighlight - A code highlighter with blur and focus buttons for SvelteKit
+# SvHighlight
 
-TODO: add npm package / number of downloads / version / etc
+A code highlighter for Svelte, with line blur and highligthing and focus buttons. The component can be easily customized with TailwindCSS.
 
-[Documentation]()
+## Links
+- [Documentation](https://svhighlight.vercel.app/)
+- [Github](https://github.com/bennymi/svhighlight)
 
-[Github](https://github.com/bennymi/svhighlight)
-
-##  Features
+## Features
 
 - ✅ line numbers toggle
 - ✅ highlighting lines / blur out non-highlighted lines

@@ -11,6 +11,7 @@
 	"bugs": {
 		"url": "https://github.com/bennymi/svhighlight/issues"
 	},
+	"homepage": "https://svhighlight.vercel.app/",
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
