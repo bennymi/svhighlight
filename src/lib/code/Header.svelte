@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 
-	const dispatcher = createEventDispatcher();
-
 	export let classesHeader: string = '';
 	export let headerText: string = '';
 	export let code: string = '';
@@ -18,9 +16,6 @@
 		setTimeout(() => {
 			copyState = false;
 		}, 1500);
-
-		/** @event {{}} copy - Fire event when code is copied.  */
-		dispatcher('copy', {});
 	};
 </script>
 

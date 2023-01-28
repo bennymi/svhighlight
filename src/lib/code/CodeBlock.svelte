@@ -223,7 +223,7 @@
 		<div class="svhiglight-block flex flex-col overflow-auto mt-2 {classesCodeBlock}">
 			<!-- Header -->
 			{#if showHeader}
-				<Header {classesHeader} {headerText} {code} on:copy />
+				<Header {classesHeader} {headerText} {code} />
 			{/if}
 
 			<!-- This element is hidden. We are only using it to bind it to a variable which has the correct childNodes of the code that should be displayed.
