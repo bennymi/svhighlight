@@ -160,11 +160,11 @@
 <table class="w-full text-sm text-center text-white">
 	<thead class="text-sm font-bold uppercase text-white bg-teal-700">
 		<tr>
-			<th scope="col" class="px-6 py-3 font-bold"> Prop </th>
-			<th scope="col" class="px-6 py-3 font-bold"> Type </th>
-			<th scope="col" class="px-6 py-3 font-bold"> Options </th>
-			<th scope="col" class="px-6 py-3 font-bold"> Default <br /> (Click to Expand) </th>
-			<th scope="col" class="py-3 text-left font-bold"> Description </th>
+			<th scope="col" class="text-white px-6 py-3 font-bold"> Prop </th>
+			<th scope="col" class="text-white px-6 py-3 font-bold"> Type </th>
+			<th scope="col" class="text-white px-6 py-3 font-bold"> Options </th>
+			<th scope="col" class="text-white px-6 py-3 font-bold"> Default <br /> (Click to Expand) </th>
+			<th scope="col" class="text-white py-3 text-left font-bold"> Description </th>
 		</tr>
 	</thead>
 	<tbody class="text-white">
@@ -174,7 +174,7 @@
 					? 'bg-gray-900'
 					: 'bg-gray-800'}"
 			>
-				<th scope="row" class="px-6 py-2 font-bold whitespace-nowrap">
+				<th scope="row" class="text-white px-6 py-2 font-bold whitespace-nowrap">
 					<code class="font-mono">{prop.prop}</code>
 				</th>
 				<td class="px-1 whitespace-nowrap">{prop.type}</td>
