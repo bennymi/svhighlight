@@ -158,7 +158,7 @@
 </script>
 
 <table class="w-full text-sm text-center text-white">
-	<thead class="text-sm font-bold uppercase bg-teal-700">
+	<thead class="text-sm font-bold uppercase text-white bg-teal-700">
 		<tr>
 			<th scope="col" class="px-6 py-3 font-bold"> Prop </th>
 			<th scope="col" class="px-6 py-3 font-bold"> Type </th>
@@ -167,7 +167,7 @@
 			<th scope="col" class="py-3 text-left font-bold"> Description </th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="text-white">
 		{#each props as prop, i}
 			<tr
 				class="border-b border-teal-600/20 h-10 overflow-auto hover:bg-teal-600 {i % 2 === 0

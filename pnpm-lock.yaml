@@ -18,7 +18,6 @@ specifiers:
   svelte: ^3.54.0
   svelte-check: ^3.0.1
   svelte2tsx: ^0.6.0
-  svhighlight: link:svhighlight
   tailwindcss: ^3.2.4
   tslib: ^2.4.1
   typescript: ^4.9.3
@@ -44,7 +43,6 @@ devDependencies:
   svelte: 3.55.1
   svelte-check: 3.0.3_pehl75e5jsy22vp33udjja4soi
   svelte2tsx: 0.6.0_atrrhq7vg4ekua4nnyrpuardle
-  svhighlight: link:svhighlight
   tailwindcss: 3.2.4_postcss@8.4.21
   tslib: 2.4.1
   typescript: 4.9.4

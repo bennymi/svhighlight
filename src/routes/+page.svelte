@@ -13,8 +13,20 @@
 		{ lines: '11-18', scrollLine: 12, text: '4: Insert CodeBlock' }
 	];
 
+	let installation = `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
+    "./node_modules/svhighlight/**/*.svelte"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}`;
+
 	let svelteCode = `<script>
-	import CodeBlock from 'svhighlight';
+	import { CodeBlock } from 'svhighlight';
     
     import 'highlight.js/styles/base16/dracula.css';
 
@@ -34,7 +46,7 @@
 </div>`;
 
 	let highlightLines = `<script>
-    import CodeBlock from 'svhighlight';
+    import { CodeBlock } from 'svhighlight';
     
     let code = \`...\`;
 <\/script>
@@ -58,11 +70,11 @@
 
 <CodeBlock {code} {focusBlocks} showFocusButtons={true} />`;
 
-	let activeStore = `<script>
-    import CodeBlock from 'svhighlight';
+	let activeStore = `<script lang="ts">
+    import { CodeBlock, type FocusBlock} from 'svhighlight';
     
     let code = \`...\`;
-    let focusBlocks = [
+    let focusBlocks: FocusBlock[] = [
         { lines: '1-3, 5', scrollLine: 1 },
         { lines: '8-12', scrollLine: 8 }
     ]
@@ -127,12 +139,12 @@
 		</div>
 	</div>
 
-	<div id="toc-target" class="w-11/12 mx-8 md:w-8/12 lg:w-5/12 lg:mx-auto mt-8 pb-32">
+	<div id="toc-target" class="w-11/12 mx-4 md:w-8/12 lg:w-5/12 lg:mx-auto mt-8 pb-32">
 		<!-- Intallation -->
 		<section>
 			<h3>Installation</h3>
 
-			<p class="font-sans">
+			<p>
 				For the installation, simply install the package, as well as
 				<a href="https://www.npmjs.com/package/highlight.js"> highlight.js </a>
 				and
@@ -145,6 +157,24 @@
 				language="shell"
 				showLineNumbers={false}
 				showHeader={true}
+				dimensions="w-full h-fit"
+			/>
+
+			<p class="mt-4">
+				Once you have Tailwind installed you need to update the <code>tailwind.config.cjs</code>
+				file, to make sure that Tailwind knows to also compile files from this package. Simply add the
+				following <code>"./node_modules/svhighlight/**/*.svelte"</code> to the
+				<code>content</code>, like this:
+			</p>
+
+			<CodeBlock
+				code={installation}
+				language="typescript"
+				showHeader={true}
+				highlightLines="4"
+				headerText="tailwind.config.cjs"
+				highlightColor="bg-green-500/20"
+				focusType="highlight"
 				dimensions="w-full h-fit"
 			/>
 		</section>
@@ -253,10 +283,9 @@
 			</p>
 			<p>
 				To change the text size and default text color of non-highlighted code you can use the <code
-					>text</code
+					>codeTextClasses</code
 				>
-				(size) and <code>textColor</code> (color) props. You can change the background color of the
-				code block with <code>background</code>.
+				prop. You can change the background color of the code block with <code>background</code>.
 			</p>
 		</section>
 
