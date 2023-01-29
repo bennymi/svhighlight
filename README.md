@@ -1,6 +1,6 @@
-# SvHighlight
+# SvHighlight - Code Highlighting with Svelte
 
-A code highlighter for Svelte, with line blur and highligthing and focus buttons. The component can be easily customized with TailwindCSS.
+A code syntax highlighter for Svelte, with line blur and highligthing and focus buttons. The component can be easily customized with TailwindCSS.
 
 ## Links
 - [Documentation](https://svhighlight.vercel.app/)
