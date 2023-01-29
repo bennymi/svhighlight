@@ -18,16 +18,32 @@ A code syntax highlighter for Svelte, with line blur and highligthing and focus 
 ## Installation
 
 ```bash
-pnpm i svhighlight
+pnpm add svhighlight
 ```
 
 For this package you also need [highlight.js](https://www.npmjs.com/package/highlight.js?activeTab=readme):
 
 ```bash
-pnpm i highlight.js
+pnpm add highlight.js
 ```
 
-Additionally install [TailwindCSS](https://tailwindcss.com/docs/guides/sveltekit) to customize the component.
+Additionally install [TailwindCSS](https://tailwindcss.com/docs/guides/sveltekit).
+
+In your `tailwind.config.cjs` file add the following line `"./node_modules/svhighlight/**/*.svelte"` to the `content`, so it looks like this:
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
+    "./node_modules/svhighlight/**/*.svelte"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
 ## Example Screenshots
 
