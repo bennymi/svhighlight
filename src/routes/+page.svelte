@@ -163,8 +163,8 @@ module.exports = {
 			<p class="mt-4">
 				Once you have Tailwind installed you need to update the <code>tailwind.config.cjs</code>
 				file, to make sure that Tailwind knows to also compile files from this package. Simply add the
-				following <code>"./node_modules/svhighlight/**/*.svelte"</code> to the
-				<code>content</code>, like this:
+				following line to the
+				<code>content</code>:
 			</p>
 
 			<CodeBlock
