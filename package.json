@@ -3,7 +3,6 @@
 	"version": "0.5.0",
 	"description": "A code highlighter for SvelteKit using highlight.js and TailwindCSS.",
 	"author": "bennymi",
-	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bennymi/svhighlight.git"
