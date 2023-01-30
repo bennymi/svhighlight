@@ -50,8 +50,8 @@
 		'flex-grow px-2 py-1 rounded-lg border-2 text-sm font-bold transition-all border-gray-900 text-gray-900 hover:bg-slate-900 hover:shadow-lg hover:shadow-blue-500 hover:text-white';
 	/** Provide classes to set the code text style (size and color). */
 	export let codeTextClasses: string = 'text-sm text-white';
-	/** Provide classes to set the default line number text color. */
-	export let lineNumberTextColor: string = 'text-white/90';
+	/** Provide classes to style the default line number text. */
+	export let lineNumberTextClasses: string = 'text-white/90';
 	/** Provide classes to set the border radius. */
 	export let rounded: string = 'rounded-lg';
 	/** Provide classes to set dimensions of the code block. */
@@ -248,7 +248,13 @@
 							on:mouseenter={() => disableBlur(i)}
 							on:mouseleave={() => (blur = true)}
 						>
-							<CodeLine {showLineNumbers} {lineNumberTextColor} lineNumber={i} {line} {language} />
+							<CodeLine
+								{showLineNumbers}
+								{lineNumberTextClasses}
+								lineNumber={i}
+								{line}
+								{language}
+							/>
 						</div>
 					{/each}
 				</div>

@@ -5,88 +5,22 @@
 	import TableOfContents from './TableOfContents.svelte';
 	import PropsTable from './PropsTable.svelte';
 
+	import {
+		svhighlightExample,
+		installation,
+		highlightLines,
+		codeFocusButtons,
+		activeStore,
+		avoidErrors
+	} from './codedefinitions';
+
 	let focusBlocks = [
 		{ lines: '', text: 'Unblur' },
 		{ lines: '1', scrollLine: 0, text: '1: Import CodeBlock' },
 		{ lines: '3', scrollLine: 0, text: '2: Import CSS theme' },
 		{ lines: '5-7', scrollLine: 3, text: '3: Define code' },
-		{ lines: '11-18', scrollLine: 12, text: '4: Insert CodeBlock' }
+		{ lines: '11-16', scrollLine: 12, text: '4: Insert CodeBlock' }
 	];
-
-	let installation = `/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './src/**/*.{html,js,svelte,ts}',
-    "./node_modules/svhighlight/**/*.svelte"
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}`;
-
-	let svelteCode = `<script>
-	import { CodeBlock } from 'svhighlight';
-    
-    import 'highlight.js/styles/base16/dracula.css';
-
-    let code = \`
-        /** example code... /*
-    \`;
-
-<\/script>
-
-<div class="flex justify-center">
-    <CodeBlock
-        language="svelte" 
-        {code}
-        showHeader={true}
-        showLineNumbers={true}
-    />
-</div>`;
-
-	let highlightLines = `<script>
-    import { CodeBlock } from 'svhighlight';
-    
-    let code = \`...\`;
-<\/script>
-
-<CodeBlock 
-    {code} 
-    highlightLines="1-3, 5, 8-10" 
-    highlightColor="bg-blue-400/20"
-/>`;
-
-	let codeFocusButtons = `<script lang="ts">
-    import { CodeBlock, type FocusBlock } from 'svhighlight';
-    
-    let code = \`...\`;
-    let focusBlocks: FocusBlock[] = [
-		{ lines: '', text: 'Remove Blur' },
-        { lines: '1-3, 5', scrollLine: 1, text: '1: Start' },
-        { lines: '8-12', scrollLine: 8, text: '2: End' }
-    ]
-<\/script>
-
-<CodeBlock {code} {focusBlocks} showFocusButtons={true} />`;
-
-	let activeStore = `<script lang="ts">
-    import { CodeBlock, type FocusBlock} from 'svhighlight';
-    
-    let code = \`...\`;
-    let focusBlocks: FocusBlock[] = [
-        { lines: '1-3, 5', scrollLine: 1 },
-        { lines: '8-12', scrollLine: 8 }
-    ]
-    let activeFocusBlockStore = writable(0);
-<\/script>
-
-<button on:click={() => {$activeFocusBlockStore += 1}}>Next</button>
-
-<CodeBlock {code} {focusBlocks} {activeFocusBlockStore} />`;
-
-	let avoidErrors = `<\$\{''\}style>
-<\$\{''\}/style>`;
 </script>
 
 <svelte:head>
@@ -124,7 +58,7 @@ module.exports = {
 
 <div class="flex justify-center">
 	<CodeBlock
-		code={svelteCode}
+		code={svhighlightExample}
 		language="svelte"
 		{focusBlocks}
 		showFocusButtons={true}
@@ -142,7 +76,7 @@ module.exports = {
 	<div id="toc-target" class="w-11/12 mx-4 md:w-8/12 lg:w-5/12 lg:mx-auto mt-8 pb-32">
 		<!-- Intallation -->
 		<section>
-			<h3>Installation</h3>
+			<h2>Installation</h2>
 
 			<p>
 				For the installation, simply install the package, as well as
@@ -181,7 +115,7 @@ module.exports = {
 
 		<!-- Highlighting Lines -->
 		<section>
-			<h3>Highlighting Lines</h3>
+			<h2>Highlighting Lines</h2>
 			<p>
 				To highlight lines you can define a string with the line numbers that should be highlighted
 				with the <code>highlightLines</code> prop. You can separate multiple lines with commas and
@@ -208,7 +142,7 @@ module.exports = {
 
 		<!-- Focus Type -->
 		<section>
-			<h3>Focus Type</h3>
+			<h2>Focus Type</h2>
 			<p>
 				You can switch the focus type between <code>'highlight'</code> and <code>'blur'</code> using
 				the <code>focusType</code> prop. By default blur is used.
@@ -217,7 +151,7 @@ module.exports = {
 
 		<!-- Focus Blocks -->
 		<section>
-			<h3>Focus Blocks</h3>
+			<h2>Focus Blocks</h2>
 
 			<p>
 				You can define a list of focus blocks, in which you can define lines that should be
@@ -235,7 +169,7 @@ module.exports = {
 				dimensions="w-full h-fit"
 				focusBlocks={[
 					{ lines: '', text: 'Remove Blur' },
-					{ lines: '4-8', text: '1: Define Blocks' },
+					{ lines: '1, 4-8', text: '1: Define Blocks' },
 					{ lines: '1, 11', text: '2: Add Code Block' }
 				]}
 				showFocusButtons={true}
@@ -244,7 +178,7 @@ module.exports = {
 
 		<!-- Active Focus Store -->
 		<section>
-			<h3>Active Focus Store</h3>
+			<h2>Active Focus Store</h2>
 			<p>
 				You can either style the focus buttons to your liking with the <code
 					>focusButtonClasses</code
@@ -261,13 +195,13 @@ module.exports = {
 				language="svelte"
 				code={activeStore}
 				dimensions="w-full h-fit"
-				highlightLines="4-8, 11, 13"
+				highlightLines="1, 4-8, 11, 13"
 			/>
 		</section>
 
 		<!-- Dimensions & Style Props -->
 		<section>
-			<h3>Dimensions & Style Props</h3>
+			<h2>Dimensions & Style Props</h2>
 			<p>
 				There are a lot of props to customize the look of the code block. Here I will only mention a
 				few. For the complete list look at the table at the bottom of the page.
@@ -287,11 +221,30 @@ module.exports = {
 				>
 				prop. You can change the background color of the code block with <code>background</code>.
 			</p>
+
+			<h3>Adding Line Number Bar</h3>
+			<p>
+				You can add a bar between the line numbers and the code by updating the <code
+					>lineNumberTextClasses</code
+				> prop:
+			</p>
+
+			<CodeBlock
+				language="svelte"
+				code={`<CodeBlock
+	{code}
+	lineNumberTextClasses="text-white\/90 border-r-2 border-white\/90"
+/>`}
+				dimensions="w-full h-fit"
+				highlightLines="2"
+				headerText="Customization: Line Numbers"
+				lineNumberTextClasses="text-white/90 border-r-2 border-white/90"
+			/>
 		</section>
 
 		<!-- Errors -->
 		<section>
-			<h3>Avoiding Errors with Svelte Code</h3>
+			<h2>Avoiding Errors with Svelte Code</h2>
 			<p>
 				When pasting Svelte code that you want to display, you have to escape the <span
 					class="font-bold">closing</span
@@ -324,11 +277,23 @@ module.exports = {
 
 		<!-- Props Overview -->
 		<section>
-			<h3>Props Overview</h3>
+			<h2>Props Overview</h2>
 
 			<div class="mt-4 relative overflow-x-auto shadow-md sm:rounded-lg">
 				<PropsTable />
 			</div>
+		</section>
+
+		<!-- Acknowledgements -->
+		<section>
+			<h2>Acknowledgements</h2>
+			<p>
+				This component was adopted from <a href="https://www.skeleton.dev/utilities/codeblocks"
+					>Skeleton UI's CodeBlock</a
+				>
+				component and inspired by their customizability, as well as
+				<a href="https://torchlight.dev/">Torchlight's syntax highlighting API</a>.
+			</p>
 		</section>
 	</div>
 </div>

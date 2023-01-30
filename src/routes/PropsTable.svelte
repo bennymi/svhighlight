@@ -123,11 +123,11 @@
 			show: false
 		},
 		{
-			prop: 'lineNumberTextColor',
+			prop: 'lineNumberTextClasses',
 			type: 'string',
 			options: '-',
 			default: 'text-white/90',
-			description: `Provide classes to set the default line number text color.`,
+			description: `Provide classes to style the default line number text.`,
 			show: false
 		},
 		{

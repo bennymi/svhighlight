@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let showLineNumbers: boolean = false;
-	export let lineNumberTextColor: string = '';
+	export let lineNumberTextClasses: string = '';
 	export let lineNumber: number;
 	export let line: string = '';
 	export let language: string = '';
@@ -9,7 +9,7 @@
 <!-- Line Numbers -->
 {#if showLineNumbers}
 	<div
-		class="absolute select-none w-10 pr-2 font-mono text-right transition-all duration-300 ease-in {lineNumberTextColor}"
+		class="absolute select-none w-10 pr-2 font-mono text-right transition-all duration-300 ease-in {lineNumberTextClasses}"
 	>
 		{lineNumber}
 	</div>

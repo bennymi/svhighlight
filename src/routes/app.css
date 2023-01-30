@@ -10,8 +10,12 @@ div > section {
     @apply w-full mt-8;
 }
 
-section h3 {
+section h2 {
     @apply text-left font-extrabold text-2xl tracking-tight;
+}
+
+section h3 {
+    @apply text-left font-extrabold text-xl tracking-tight;
 }
 
 p {
