@@ -47,5 +47,13 @@
 	"type": "module",
 	"dependencies": {
 		"highlight.js": "^11.7.0"
-	}
+	},
+	"keywords": [
+		"svelte",
+		"highlight.js",
+		"tailwind",
+		"code",
+		"syntax",
+		"highlighting"
+	  ]
 }
