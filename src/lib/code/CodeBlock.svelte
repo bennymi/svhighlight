@@ -73,7 +73,7 @@
 		if (browser) {
 			document
 				.getElementById(`svhighlight-${uniqueID}-line-${line}`)
-				?.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+				?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 		}
 	};
 
