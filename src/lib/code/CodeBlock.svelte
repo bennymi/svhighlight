@@ -5,6 +5,7 @@
 -->
 <script lang="ts">
 	import hljs from 'highlight.js';
+	import scrollIntoView from 'scroll-into-view-if-needed';
 
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
@@ -71,9 +72,17 @@
 
 	const scrollToLine = (line: number) => {
 		if (browser) {
-			document
-				.getElementById(`svhighlight-${uniqueID}-line-${line}`)
-				?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+			const element: HTMLElement | null = document.getElementById(
+				`svhighlight-${uniqueID}-line-${line}`
+			);
+
+			const parent: HTMLElement | null = document.getElementById(`svhighlight-${uniqueID}-code`);
+
+			scrollIntoView(element!, {
+				behavior: 'smooth',
+				block: 'start',
+				boundary: parent
+			});
 		}
 	};
 
@@ -208,7 +217,7 @@
 	$: classesCodeBlock = `${background} ${codeTextClasses} ${rounded}`;
 </script>
 
-<div class="svhiglight flex flex-col {dimensions}">
+<div class="svhiglight-{uniqueID} flex flex-col {dimensions}">
 	{#if showFocusButtons && updatedFocusBlocks.length > 0}
 		<div class="svhiglight-focus-buttons flex justify-start flex-wrap gap-x-4 gap-y-2">
 			{#each updatedFocusBlocks as block, i}
@@ -220,7 +229,7 @@
 	{/if}
 
 	{#if language && code}
-		<div class="svhiglight-block flex flex-col overflow-auto mt-2 {classesCodeBlock}">
+		<div class="svhiglight-{uniqueID}-block flex flex-col overflow-auto mt-2 {classesCodeBlock}">
 			<!-- Header -->
 			{#if showHeader}
 				<Header {classesHeader} {headerText} {code} />
@@ -236,7 +245,7 @@
 
 			<!-- Code display block -->
 			{#if lines.length > 0}
-				<div class="overflow-auto p-2">
+				<div id="svhighlight-{uniqueID}-code" class="overflow-auto p-2">
 					<!-- Lines -->
 					{#each lines as line, i}
 						<div

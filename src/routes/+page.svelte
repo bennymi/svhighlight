@@ -17,7 +17,7 @@
 	let focusBlocks = [
 		{ lines: '', text: 'Unblur' },
 		{ lines: '1', scrollLine: 0, text: '1: Import CodeBlock' },
-		{ lines: '3', scrollLine: 0, text: '2: Import CSS theme' },
+		{ lines: '3', scrollLine: 1, text: '2: Import CSS theme' },
 		{ lines: '5-7', scrollLine: 3, text: '3: Define code' },
 		{ lines: '10-15', scrollLine: 15, text: '4: Insert CodeBlock' }
 	];

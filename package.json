@@ -46,7 +46,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"highlight.js": "^11.7.0"
+		"highlight.js": "^11.7.0",
+		"scroll-into-view-if-needed": "^3.0.4"
 	},
 	"keywords": [
 		"svelte",
@@ -54,6 +55,10 @@
 		"tailwind",
 		"code",
 		"syntax",
-		"highlighting"
-	  ]
+		"highlighting",
+		"typescript",
+		"sveltekit",
+		"prismjs"
+
+	]
 }
