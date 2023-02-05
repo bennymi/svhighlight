@@ -45,12 +45,12 @@ let codeFocusButtons = `<script lang="ts">
     let code = \`...\`;
     let focusBlocks: FocusBlock[] = [
         { lines: '', text: 'Remove Blur' },
-        { lines: '1-3, 5', scrollLine: 1, text: '1: Start' },
-        { lines: '8-12', scrollLine: 8, text: '2: End' }
+        { lines: '1-3, 5', scrollLine: 1, text: '1: Define Blocks' },
+        { lines: '8-12', scrollLine: 8, text: '2: Add Code Block' }
     ]
 <\/script>
 
-<CodeBlock {code} {focusBlocks} showFocusButtons={true} />`;
+<CodeBlock language="svelte" {code} {focusBlocks} showFocusButtons={true} />`;
 
 let activeStore = `<script lang="ts">
     import { CodeBlock, type FocusBlock} from 'svhighlight';

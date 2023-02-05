@@ -158,7 +158,12 @@
 				highlighted, as well as which line to scroll to when the focus block is active. If you are
 				using Typescript, you can import the <code>FocusBlock</code> type from the library. If you
 				want to see focus buttons for each focus block, you can set
-				<code>showFocusButtons={'{true}'}</code>. Focus buttons can be customized with the
+				<code>showFocusButtons={'{true}'}</code>. Setting <code>lines: ''</code> will not highlight
+				any lines, so it can also be used as an "unblur" button. To specify the text in a button you
+				can set the <code>text</code> property.
+			</p>
+			<p>
+				Focus buttons can be customized with the
 				<code>focusButtonClasses</code> prop.
 			</p>
 
