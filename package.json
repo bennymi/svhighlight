@@ -24,7 +24,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^1.0.0",
-		"@sveltejs/kit": "^1.0.0",
+		"@sveltejs/kit": "^1.7.2",
 		"@sveltejs/package": "^1.0.2",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
@@ -59,6 +59,5 @@
 		"typescript",
 		"sveltekit",
 		"prismjs"
-
 	]
 }
