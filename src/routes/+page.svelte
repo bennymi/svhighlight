@@ -31,11 +31,10 @@
 	/>
 	<meta
 		name="keywords"
-		content="svelte, sveltekit, code highlighter, syntax highlighting, blur, highlight.js, prism.js, tailwind, line numbers, blur"
+		content="svelte, sveltekit, code, highlighter, syntax, highlighting, blur, highlight.js, prism.js, tailwind, line numbers, blur"
 	/>
-	<meta name="author" content="bennymi" />
+	<meta name="author" content="Benedikt Mielke" />
 	<meta name="robots" content="index,follow" />
-	<html lang="en" />
 </svelte:head>
 
 <!-- <div class="sticky top-0 z-10"> -->

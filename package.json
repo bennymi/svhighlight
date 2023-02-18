@@ -2,7 +2,7 @@
 	"name": "svhighlight",
 	"version": "0.6.5",
 	"description": "A code highlighter for SvelteKit using highlight.js and TailwindCSS.",
-	"author": "bennymi",
+	"author": "Benedikt Mielke",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bennymi/svhighlight.git"
