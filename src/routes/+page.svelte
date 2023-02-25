@@ -40,7 +40,7 @@
 	<meta name="author" content="Benedikt Mielke" />
 	<meta name="robots" content="index,follow" />
 	<!-- Open Graph - https://ogp.me/ -->
-	<meta property="og:site_name" content="SvelteShow" />
+	<meta property="og:site_name" content="SvHighlight" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://svhighlight.vercel.app" />
 	<meta property="og:locale" content="en_US" />
