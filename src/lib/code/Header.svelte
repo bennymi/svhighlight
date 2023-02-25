@@ -29,6 +29,7 @@
 	<button
 		class="svhighlight-copy-btn px-2 py-1 rounded-lg transition-all duration-200 text-white/70 hover:text-white/95"
 		on:click={handleCopy}
+		aria-label="copy code button"
 	>
 		{#if copyState}
 			<svg xmlns="http://www.w3.org/2000/svg" class="w-5" viewBox="0 0 24 24"

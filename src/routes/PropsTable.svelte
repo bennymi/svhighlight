@@ -180,7 +180,8 @@
 				<td class="px-1 whitespace-nowrap">{prop.type}</td>
 				<td class="px-1 whitespace-nowrap"><code class="font-mono">{prop.options}</code></td>
 				<td class="px-1 ">
-					{#if prop.default.split(' ').length < 3}
+					<code class="font-mono">{prop.default}</code>
+					<!-- {#if prop.default.split(' ').length < 3}
 						<code class="font-mono">{prop.default}</code>
 					{:else}
 						<button
@@ -189,7 +190,7 @@
 						>
 							{prop.show ? prop.default : '{...}'}
 						</button>
-					{/if}
+					{/if} -->
 				</td>
 				<td class="px-2 whitespace-nowrap text-left">{prop.description}</td>
 			</tr>

@@ -14,6 +14,12 @@
 		avoidErrors
 	} from './codedefinitions';
 
+	const meta = {
+		title: 'SvHighlight: Code Highlighter for Svelte / SvelteKit & Tailwind CSS',
+		description:
+			'A code highlighter for Svelte, with line blur and highligthing and focus buttons. The component can be easily customized with TailwindCSS.'
+	};
+
 	let focusBlocks = [
 		{ lines: '', text: 'Unblur' },
 		{ lines: '1', scrollLine: 0, text: '1: Import CodeBlock' },
@@ -24,17 +30,22 @@
 </script>
 
 <svelte:head>
-	<title>SvHighlight: Code Highlighter for SvelteKit</title>
-	<meta
-		name="description"
-		content="A code highlighter for Svelte, with line blur and highligthing and focus buttons. The component can be easily customized with TailwindCSS."
-	/>
+	<title>{meta.title}</title>
+	<!-- Meta Tags -->
+	<meta name="description" content={meta.description} />
 	<meta
 		name="keywords"
-		content="svelte, sveltekit, code, highlighter, syntax, highlighting, blur, highlight.js, prism.js, tailwind, line numbers, blur"
+		content="svelte, sveltekit, code, highlighter, syntax, highlighting, blur, highlight.js, highlightjs, prism.js, prismjs, tailwind, line numbers, torchlight"
 	/>
 	<meta name="author" content="Benedikt Mielke" />
 	<meta name="robots" content="index,follow" />
+	<!-- Open Graph - https://ogp.me/ -->
+	<meta property="og:site_name" content="SvelteShow" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://svhighlight.vercel.app" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:title" content={meta.title} />
+	<meta property="og:description" content={meta.description} />
 </svelte:head>
 
 <!-- <div class="sticky top-0 z-10"> -->
@@ -122,11 +133,13 @@
 			</p>
 
 			<p>
-				The full list of supported languages from highlight.js is <a
+				The highlight.js repo has a full <a
 					href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md"
-					>here</a
-				>, and a list of available themes is
-				<a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles">here</a>.
+					>list of supported languages</a
+				>, as well as a
+				<a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md"
+					>list of available themes</a
+				>.
 			</p>
 
 			<CodeBlock
@@ -249,8 +262,17 @@
 		<!-- Errors -->
 		<section>
 			<h2>Avoiding Errors with Svelte Code</h2>
+
 			<p>
-				When pasting Svelte code that you want to display, you have to escape the <span
+				The easiest way to avoid parsing errors of your string codes is to define your strings in a
+				separate <code class="code">.ts</code> or <code class="code">.js</code> file and import them
+				into your svelte file. This also keeps your svelte file cleaner and allows you to avoid the steps
+				below.
+			</p>
+
+			<p>
+				If you want to define the code in your svelte file then you need to be aware of the
+				following steps. When pasting Svelte code that you want to display, you have to escape the <span
 					class="font-bold">closing</span
 				>
 				script tag to avoid errors:

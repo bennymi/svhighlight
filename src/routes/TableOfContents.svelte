@@ -56,8 +56,6 @@
 
 		// Select only relevant headings
 		elemHeadersList?.forEach((elem: HTMLElement, i: number) => {
-			// Skip if `data-toc-ignore` attribute set
-			if (elem.hasAttribute('data-toc-ignore')) return;
 			// Generate a unique ID if none present
 			if (!elem.id) {
 				let newId = elem.innerText
@@ -233,16 +231,18 @@
 <div class="toc {classesBase}">
 	<nav class="toc-list {classesList}">
 		<div class="toc-label {classesLabel}">{label}</div>
-		{#each headingsList as headingElem, i}
-			<!-- prettier-ignore -->
-			<li
-				class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {setTextClasses(i)}"
-				on:click={() => { scrollToHeading(headingElem, i); }}
-				on:click
-				on:keypress
-			>
-				{headingElem.innerText}
-			</li>
-		{/each}
+		<ul class="list-none">
+			{#each headingsList as headingElem, i}
+				<!-- prettier-ignore -->
+				<li
+					class="toc-list-item {classesListItem} {setHeadingClasses(headingElem)} {setTextClasses(i)}"
+					on:click={() => { scrollToHeading(headingElem, i); }}
+					on:click
+					on:keypress
+				>
+					{headingElem.innerText}
+				</li>
+			{/each}
+		</ul>
 	</nav>
 </div>
